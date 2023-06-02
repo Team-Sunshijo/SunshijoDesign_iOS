@@ -17,15 +17,15 @@ jobs:
         xcode-version: '13.3'
     - name: setup git
       run: |
-        git config --global user.name 'semicolondsmkr'
-        git config --global user.email 'semicolondsm@gmail.com'
+        git config --global user.name 'Team-Sunshijokr'
+        git config --global user.email 'Team-Sunshijo@gmail.com'
         git config pull.rebase false
         git checkout -t origin/Deploy_Docc
         git pull origin Deploy_Docc
         git merge main
     - name: Archive Docc
       run: |
-        xcodebuild clean docbuild -scheme SemicolonDesign \
+        xcodebuild clean docbuild -scheme SunshijoDesign \
         -destination generic/platform=iOS \
         OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path SemicolonDesign_iOS --output-path docs"
 
