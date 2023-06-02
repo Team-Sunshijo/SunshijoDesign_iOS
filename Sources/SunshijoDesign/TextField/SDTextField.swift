@@ -47,6 +47,7 @@ public struct SDTextField: View {
             }
                 
         }
+        .padding(.horizontal, 30)
         .padding(.bottom, 25)
     }
 }
