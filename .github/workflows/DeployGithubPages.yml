@@ -1,0 +1,36 @@
+name: Deploy Github Pages
+
+on:
+  push:
+    branches:
+      - main
+    
+jobs:
+  hosting:
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '13.3'
+    - name: setup git
+      run: |
+        git config --global user.name 'semicolondsmkr'
+        git config --global user.email 'semicolondsm@gmail.com'
+        git config pull.rebase false
+        git checkout -t origin/Deploy_Docc
+        git pull origin Deploy_Docc
+        git merge main
+    - name: Archive Docc
+      run: |
+        xcodebuild clean docbuild -scheme SemicolonDesign \
+        -destination generic/platform=iOS \
+        OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path SemicolonDesign_iOS --output-path docs"
+
+    - name: git commit & push
+      run: |
+        git add -A
+        git commit -m "📝 :: Updated docc"
+        git push
