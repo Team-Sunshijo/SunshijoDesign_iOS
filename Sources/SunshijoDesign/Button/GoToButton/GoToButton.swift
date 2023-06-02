@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct GoToButton: View {
+public struct GoToButton: View {
     var title: String
     var buttonTitle: String
     var action: () -> Void
@@ -13,7 +13,7 @@ struct GoToButton: View {
         self.buttonTitle = buttonTitle
         self.action = action
     }
-    var body: some View {
+    public var body: some View {
         HStack(alignment: .center, spacing: 9) {
             Text(title)
                 .font(.system(size: 10, weight: .regular))
