@@ -7,17 +7,20 @@ struct CalendarCell: View {
     let startingSpaces: Int
     let daysInMonth: Int
     let daysInPrevMonth: Int
-
+    
     
     var body: some View {
         Text(checkMonthType().dayToString())
-            .sdText(type: .regular16, textColor: .black)
+            .sdText(
+                type: .regular16,
+                textColor: textColor(type: checkMonthType().monthType)
+            )
             .frame(width: checkSize(), height: checkSize())
-            .background()
     }
+    
     func textColor(type: MonthType) -> Color {
         if Int(date.toString("d")) == count - startingSpaces && Date().toString("yyyy MM") == date.toString("yyyy MM") {
-            return .white
+            return .black
         } else if type == .current {
             return .black
         } else {
