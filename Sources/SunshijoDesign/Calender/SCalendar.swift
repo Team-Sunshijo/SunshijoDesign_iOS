@@ -3,6 +3,7 @@ import SwiftUI
 struct SCalendar: View {
     @Binding var date: Date
     let specialDays: [Date]
+    let weeks = ["일", "월", "화", "수", "목", "금", "토"]
 
     public init(date: Binding<Date>, specialDays: [Date]) {
         self._date = date
@@ -41,8 +42,8 @@ struct SCalendar: View {
             }
         }
     }
-
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarPreViews()
