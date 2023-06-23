@@ -53,4 +53,12 @@ extension Date {
     func getCurrentDay() -> Int {
         return Calendar.current.dateComponents([.day], from: self).day ?? 0
     }
+    // 전번달 값으로 변경하는 함수
+    mutating func setLastMonth() {
+        self = Calendar.current.date(byAdding: .month, value: -1, to: self) ?? Date()
+    }
+    // 다음 달 값으로 변경하는 함수
+    mutating func setNextMonth() {
+        self = Calendar.current.date(byAdding: .month, value: 1, to: self) ?? Date()
+    }
 }
