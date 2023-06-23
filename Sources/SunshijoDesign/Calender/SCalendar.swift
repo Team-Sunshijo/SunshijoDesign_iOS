@@ -18,7 +18,8 @@ struct SCalendar: View {
         let prevMonth = date.lastMonth()
         let daysInPrevMonth = prevMonth.getWeeksCountOfMonth()
 
-        VStack{
+        VStack(spacing: 15){
+            CalendarHeaderView(date: $date)
             HStack(spacing: 35) {
                 ForEach(weeks, id: \.self) { index in
                     Text(index)
@@ -26,7 +27,7 @@ struct SCalendar: View {
                 }
             }
             ForEach(0..<weeksCountInMonth, id: \.self) { row in
-                HStack(spacing: 30) {
+                HStack(spacing: 20) {
                     ForEach(1..<8, id:\.self) { day in
                         let count = (day + (row * 7))
                         CalendarCell(
