@@ -15,6 +15,7 @@ public extension Color.GrayScale {
     static let gray700: Color = #colorLiteral(red: 0.3019607663, green: 0.3019607663, blue: 0.3019607663, alpha: 1).color
     static let gray800: Color = #colorLiteral(red: 0.1607843041, green: 0.1607843041, blue: 0.1607843041, alpha: 1).color
     static let gray900: Color = #colorLiteral(red: 0.1019608006, green: 0.1019608006, blue: 0.1019608006, alpha: 1).color
+    static let gray10: Color = #colorLiteral(red: 0.178817153, green: 0.1396981776, blue: 0.1832496524, alpha: 1).color
 }
 
 // MARK: - White
