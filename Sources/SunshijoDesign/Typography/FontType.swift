@@ -15,6 +15,7 @@ public enum FontType {
     case regular12
     case regular10
 
+    case medium18
     case medium16
     case medium14
     case medium12
@@ -29,7 +30,7 @@ extension FontType {
         case .semiBold24, .regular24: return 24
 
         case .semiBold20: return 20
-        case .semiBold18: return 18
+        case .semiBold18, .medium18: return 18
 
         case .semiBold16, .regular16, .medium16: return 16
 
@@ -47,7 +48,7 @@ extension FontType {
 
         case .regular32, .regular24, .regular16, .regular14, .regular12, .regular10: return .regular
 
-        case .medium16, .medium14, .medium12, .medium10: return .medium
+        case .medium18, .medium16, .medium14, .medium12, .medium10: return .medium
 
         }
     }
@@ -58,6 +59,7 @@ extension FontType {
         case .medium12: return 20
         case .medium14: return 22
         case .medium16, .semiBold16: return 24
+        case .medium18: return 26
 
         case .regular10: return 14
         case .regular12: return 16
