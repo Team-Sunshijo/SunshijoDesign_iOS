@@ -47,7 +47,7 @@ public struct SDBottomSheet: View {
                 }
                 Button {
                     self.dismissBottomSheet()
-                    fillButton.action()
+                    cancelButton.action()
                 } label: {
                     HStack {
                         Spacer()
