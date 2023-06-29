@@ -10,8 +10,8 @@ struct CalendarCell: View {
     
     
     var body: some View {
-        if #available(iOS 16.0, *) {
-            return Text(checkMonthType().dayToString())
+        return VStack(spacing: 0) {
+            Text(checkMonthType().dayToString())
                 .sdText(
                     type: .regular16,
                     textColor: textColor(type: checkMonthType().monthType)
@@ -19,16 +19,11 @@ struct CalendarCell: View {
                 .frame(width: checkSize(), height: checkSize())
                 .background(backgroundColor())
                 .cornerRadius(20)
-                .underline(true, pattern: .solid, color: borderColor())
-                
-        }else {
-            return Text(checkMonthType().dayToString())
-                .sdText(
-                    type: .regular16,
-                    textColor: textColor(type: checkMonthType().monthType)
-                )
-                .frame(width: checkSize(), height: checkSize())
-                .background(backgroundColor())
+            if dividerColor() {
+                Divider()
+                    .frame(width: checkSize(), height: 2)
+                    .background(Color.Primary.main)
+            }
         }
 
         func textColor(type: MonthType) -> Color {
@@ -54,12 +49,12 @@ struct CalendarCell: View {
             }
         }
 
-        func borderColor() -> Color {
+        func dividerColor() -> Bool {
             return specialDate.filter {
                 $0.toString("yyyy MM") == date.toString("yyyy MM") && $0.toString("yyyy MM dd") != Date().toString("yyyy MM dd")
             }
             .map { Int($0.toString("d")) }
-            .contains { $0 == count - startingSpaces } ? .Primary.main : .white
+            .contains { $0 == count - startingSpaces }
         }
 
         func currentTextColor() -> Color {
