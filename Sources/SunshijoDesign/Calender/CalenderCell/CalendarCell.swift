@@ -19,7 +19,7 @@ struct CalendarCell: View {
                 .frame(width: checkSize(), height: checkSize())
                 .background(backgroundColor())
                 .cornerRadius(20)
-            if dividerColor() {
+            if isSpecialDay() {
                   SDivider(color: Color.Primary.main, height: 1)
                       .cornerRadius(30)
                       .frame(width: 20)
@@ -51,7 +51,7 @@ struct CalendarCell: View {
             }
         }
 
-        func dividerColor() -> Bool {
+        func isSpecialDay() -> Bool {
             return specialDate.filter {
                 $0.toString("yyyy MM") == date.toString("yyyy MM") && $0.toString("yyyy MM dd") != Date().toString("yyyy MM dd")
             }
