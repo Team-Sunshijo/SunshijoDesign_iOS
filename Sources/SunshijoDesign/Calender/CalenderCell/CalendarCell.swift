@@ -20,9 +20,11 @@ struct CalendarCell: View {
                 .background(backgroundColor())
                 .cornerRadius(20)
             if dividerColor() {
-                Divider()
-                    .frame(width: checkSize(), height: 2)
-                    .background(Color.Primary.main)
+                  SDivider(color: Color.Primary.main, height: 1)
+                      .cornerRadius(30)
+                      .frame(width: 20)
+                      .frame(height: 2)
+
             }
         }
 
