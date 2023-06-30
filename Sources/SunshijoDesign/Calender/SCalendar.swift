@@ -19,7 +19,11 @@ struct SCalendar: View {
         let daysInPrevMonth = prevMonth.getWeeksCountOfMonth()
 
         VStack(spacing: 15){
-            CalendarHeaderView(date: $date)
+            HStack {
+                CalendarHeaderView(date: $date)
+                    .padding(.leading, 41)
+                Spacer()
+            }
             HStack(spacing: 35) {
                 ForEach(weeks, id: \.self) { index in
                     Text(index)
