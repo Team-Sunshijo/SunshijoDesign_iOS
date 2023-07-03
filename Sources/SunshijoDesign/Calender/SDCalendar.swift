@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SCalendar: View {
+struct SDCalendar: View {
     @Binding var date: Date
     let specialDays: [Date]
     let weeks = ["일", "월", "화", "수", "목", "금", "토"]

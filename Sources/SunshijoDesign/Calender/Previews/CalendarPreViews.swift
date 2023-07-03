@@ -10,6 +10,6 @@ struct CalendarPreViews: View {
         "2023 05 22".toDate("yyyy MM dd")
     ]
     var body: some View {
-        SCalendar(date: $date, specialDays: specialDate)
+        SDCalendar(date: $date, specialDays: specialDate)
     }
 }
