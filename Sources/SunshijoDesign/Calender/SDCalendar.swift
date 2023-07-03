@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SDCalendar: View {
+public struct SDCalendar: View {
     @Binding var date: Date
     let specialDays: [Date]
     let weeks = ["일", "월", "화", "수", "목", "금", "토"]
@@ -10,7 +10,7 @@ struct SDCalendar: View {
         self.specialDays = specialDays
     }
     
-    var body: some View {
+    public var body: some View {
         let daysInMonth = date.getWeeksCountOfMonth()
         let firstDayOfMonth = date.getFirstOfMonth()
         let startingSpaces = firstDayOfMonth.startDayOfWeek()
